@@ -102,6 +102,13 @@ public class SourceService implements SourceQueryPort {
                 rights.getAttributionRequirement(), rights.isAllowPublicExcerpt());
     }
 
+    @Transactional(readOnly = true)
+    public EvidenceStatus getStatus(UUID sourcePublicId) {
+        return sourceRepository.findByPublicId(sourcePublicId)
+                .map(SourceEntity::getVerificationStatus)
+                .orElseThrow(() -> new IllegalArgumentException("Source not found"));
+    }
+
     @Transactional
     public SourceView transitionStatus(UUID sourcePublicId, EvidenceStatus target, PlatformUserPrincipal actor) {
         if (target == null) {

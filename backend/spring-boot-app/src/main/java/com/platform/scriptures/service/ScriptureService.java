@@ -85,6 +85,13 @@ public class ScriptureService {
         return toView(passage, edition, false);
     }
 
+    @Transactional(readOnly = true)
+    public EvidenceStatus getStatus(UUID passagePublicId) {
+        return passageRepository.findByPublicId(passagePublicId)
+                .map(SourcePassageEntity::getVerificationStatus)
+                .orElseThrow(() -> new IllegalArgumentException("Passage not found"));
+    }
+
     @Transactional
     public PassageView transitionStatus(UUID passagePublicId, EvidenceStatus target, PlatformUserPrincipal actor) {
         SourcePassageEntity passage = passageRepository.findByPublicId(passagePublicId)

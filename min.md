@@ -72,14 +72,13 @@
   - Authored Flyway migrations `V1`–`V8` covering Identity, Sources/Editions/Rights, Passages/References/Translations, Teachings, Claims/Evidence/Comparisons, Videos, Review/Audit/Submissions, and AI/Ingestion tables.
 
 ### Phase 1 — Admin, Security & Source Ingestion Core (Steps 5–7)
-- [ ] **Step 5: Authentication, RBAC & Audit Foundation (`auth`, `users`, `admin`)**
-  - Implement JWT access/refresh flow, `SUPER_ADMIN` seeding via safe env-driven bootstrap, role guards (`SUPER_ADMIN`, `USER`, future roles), rate limiting, and immutable `audit_logs`.
-- [ ] **Step 6: Source, Edition, Rights & Passage Management (`sources`, `scriptures`, `translations`)**
-  - CRUD + status transitions for Sources, Editions, Rights/Licenses, Authors, and source-specific Reference hierarchies (Vedas Mandal/Sukta/Mantra, Quran Surah/Ayah, Bible Book/Chapter/Verse, Books Printed vs PDF page).
-  - Separate storage for original text vs translations + translation provider/reviewer metadata.
-- [ ] **Step 7: Document Upload, Extraction & Human Review Queue (`review`, `notifications`)**
-  - Signed Cloudinary upload / safe document validation (MIME, size, SSRF checks), database-backed `ingestion_jobs` & `processing_jobs`.
-  - Admin review workflow (`NEEDS_REVIEW` → `VERIFIED` → `PUBLISHED` / `NEEDS_CORRECTION`) with side-by-side source inspection and version snapshots (`content_versions`).
+- [x] **Step 5: Authentication, RBAC & Audit Foundation (`auth`, `users`, `admin`)**
+  - Implemented JWT access/refresh flow ([JwtService.java](file:///d:/WEB_PROJECTS/Spring/SpiritualKnowledgePlatform/backend/spring-boot-app/src/main/java/com/platform/auth/security/JwtService.java), [JwtAuthenticationFilter.java](file:///d:/WEB_PROJECTS/Spring/SpiritualKnowledgePlatform/backend/spring-boot-app/src/main/java/com/platform/auth/security/JwtAuthenticationFilter.java), [AuthService.java](file:///d:/WEB_PROJECTS/Spring/SpiritualKnowledgePlatform/backend/spring-boot-app/src/main/java/com/platform/auth/service/AuthService.java), [AuthController.java](file:///d:/WEB_PROJECTS/Spring/SpiritualKnowledgePlatform/backend/spring-boot-app/src/main/java/com/platform/auth/controller/AuthController.java)), env-driven `SUPER_ADMIN` bootstrap ([SuperAdminBootstrap.java](file:///d:/WEB_PROJECTS/Spring/SpiritualKnowledgePlatform/backend/spring-boot-app/src/main/java/com/platform/auth/service/SuperAdminBootstrap.java)), role guards, and immutable `audit_logs` ([AuditLogService.java](file:///d:/WEB_PROJECTS/Spring/SpiritualKnowledgePlatform/backend/spring-boot-app/src/main/java/com/platform/common/audit/AuditLogService.java), [AdminAuditController.java](file:///d:/WEB_PROJECTS/Spring/SpiritualKnowledgePlatform/backend/spring-boot-app/src/main/java/com/platform/admin/controller/AdminAuditController.java)).
+- [x] **Step 6: Source, Edition, Rights & Passage Management (`sources`, `scriptures`, `translations`)**
+  - Implemented Sources, Editions, Rights/Licenses ([SourceService.java](file:///d:/WEB_PROJECTS/Spring/SpiritualKnowledgePlatform/backend/spring-boot-app/src/main/java/com/platform/sources/service/SourceService.java)), Passages & References ([ScriptureService.java](file:///d:/WEB_PROJECTS/Spring/SpiritualKnowledgePlatform/backend/spring-boot-app/src/main/java/com/platform/scriptures/service/ScriptureService.java)), and separate Translations ([TranslationService.java](file:///d:/WEB_PROJECTS/Spring/SpiritualKnowledgePlatform/backend/spring-boot-app/src/main/java/com/platform/translations/service/TranslationService.java)) with clean cross-module service ports (`SourceQueryPort`, `TranslationQueryPort`, `UserQueryPort`).
+- [x] **Step 7: Document Upload, Extraction & Human Review Queue (`review`, `notifications`)**
+  - Implemented `ReviewService` + `AdminReviewController` (`review_tasks`, `verification_reviews`, `content_versions` JSON snapshots) and `CloudinarySignatureService` + `UploadSafetyValidator` + `IngestionService` + `AdminIngestionController` (`source_files`, `ingestion_jobs`, MIME/25MB & SSRF guards).
+  - Wired **Admin Login & Protected Console** in `frontend/admin-dashboard` (`App.tsx`) + local `.env` files with Spring `config.import`.
 
 ### Phase 2 — Public Knowledge Library & Bilingual UI (Steps 8–10)
 - [ ] **Step 8: Public Search & Read APIs (`search`, public endpoints)**
@@ -125,6 +124,6 @@
 ---
 
 ## 4. Session Handoff Log
-- **Current Status:** Phase 0 (Steps 1–4) completed and verified (`public-website` & `admin-dashboard` TypeScript/Vite builds clean; Spring Boot `mvn test` passes with Flyway `V1`–`V8` packaged).
-- **Next Action When Ready:** Execute **Phase 1 — Step 5** (Authentication, JWT + RBAC & Audit Logs) and **Step 6** (Sources, Editions, Rights & Passages APIs), then connect Neon PostgreSQL credentials in local `.env` to run live Flyway migrations.
+- **Current Status:** Phase 0 (Steps 1–4) and Phase 1 (Steps 5–7) completed and verified; Neon Lakebase Postgres (`rapid-salad-87994216`, `production` branch) provisioned via `neon deploy`, wired via `NeonDatabaseEnvironmentPostProcessor`, and all 34 Flyway tables (`V1`–`V8`) migrated and verified live.
+- **Next Action When Ready:** Execute **Phase 2 — Step 8** (Bilingual Public Search & Read APIs `/api/v1/public/search`) and **Step 9** (connect `frontend/public-website` to live Spring Boot APIs).
 
