@@ -1,0 +1,6 @@
+/* Single-place theme import shared with public-website */
+@import '../../shared-theme/index.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

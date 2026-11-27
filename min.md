@@ -61,15 +61,15 @@
 ### Phase 0 — Foundation & Design System (Steps 1–4)
 - [x] **Step 1: Project Documentation & Master Plan (`min.md` + `documentation/`)**
   - Lock architecture, database ERD, API contracts, editorial rules, environment rules, and single-place Spiritual UI/UX theme spec.
-- [ ] **Step 2: Repository Scaffolding, `.gitignore` & Environment Templates**
-  - Create directory tree (`frontend/public-website`, `frontend/admin-dashboard`, `frontend/shared-theme`, `backend/spring-boot-app`, `ai-service`, `database`, `documentation`).
-  - Write root `.gitignore`, `frontend/.env.example`, `backend/.env.example`, `ai-service/.env.example`.
-- [ ] **Step 3: Single-Place Spiritual Theme Package & UI Primitives**
-  - Create centralized theme tokens (`tokens.css` + `theme.ts` + Tailwind preset) with the mixed light/dark spiritual palette, non-generic saffron-terracotta/sandalwood buttons, and large `18px+` bilingual typography (`Noto Serif`, `Inter`, `Noto Sans Devanagari`).
-  - Configure `shadcn/ui` base components overridden exclusively via the central theme tokens (no blue/black/white/green buttons, no small text).
-- [ ] **Step 4: PostgreSQL Database Schema & Flyway Foundation**
-  - Initialize Spring Boot 3 / Java 21 project with Maven/Gradle, `common` module (unified `ApiResponse`, `GlobalExceptionHandler`, audit/base entity, security config, OpenAPI).
-  - Author Flyway migrations `V1`–`V8` covering Identity, Sources/Editions/Rights, Passages/References/Translations, Teachings, Claims/Evidence/Comparisons, Videos, Review/Audit/Submissions, and AI/Ingestion/pgvector tables.
+- [x] **Step 2: Repository Scaffolding, `.gitignore` & Environment Templates**
+  - Created directory tree (`frontend/public-website`, `frontend/admin-dashboard`, `frontend/shared-theme`, `backend/spring-boot-app`, `ai-service`, `database`, `documentation`).
+  - Wrote root `.gitignore`, `frontend/.env.example`, `backend/.env.example`, `ai-service/.env.example`.
+- [x] **Step 3: Single-Place Spiritual Theme Package & UI Primitives**
+  - Created centralized theme tokens (`tokens.css`, `typography.css`, `tailwind.preset.js`, `index.css`) with the mixed light/dark spiritual palette, non-generic saffron-terracotta/sandalwood buttons, and large `18px+` bilingual typography (`Noto Serif`, `Inter`, `Noto Sans Devanagari`).
+  - Built bilingual (`en`/`hi`) reference pages in `frontend/public-website` (`HomePage`, `SearchPage`, `ScriptureDetailPage`, `ComparativeResearchPage`, `AskAiPage`) and the `frontend/admin-dashboard` shell.
+- [x] **Step 4: PostgreSQL Database Schema & Flyway Foundation**
+  - Initialized Java 21 + Spring Boot 3.4.2 Maven project with `common` module (`ApiResponse`, `GlobalExceptionHandler`, `EvidenceStatus`, `SecurityConfig`, `PublicStatusController`).
+  - Authored Flyway migrations `V1`–`V8` covering Identity, Sources/Editions/Rights, Passages/References/Translations, Teachings, Claims/Evidence/Comparisons, Videos, Review/Audit/Submissions, and AI/Ingestion tables.
 
 ### Phase 1 — Admin, Security & Source Ingestion Core (Steps 5–7)
 - [ ] **Step 5: Authentication, RBAC & Audit Foundation (`auth`, `users`, `admin`)**
@@ -125,6 +125,6 @@
 ---
 
 ## 4. Session Handoff Log
-- **Current Status:** Phase 0 — Step 1 completed (master plan + complete architectural, DB, API, editorial, ops, and spiritual UI/UX `.md` specs created).
-- **Next Action When Ready:** Execute **Step 2** (create folder structure, `.gitignore`, `.env.example` templates) and **Step 3** (build the centralized single-place Spiritual Theme package).
+- **Current Status:** Phase 0 (Steps 1–4) completed and verified (`public-website` & `admin-dashboard` TypeScript/Vite builds clean; Spring Boot `mvn test` passes with Flyway `V1`–`V8` packaged).
+- **Next Action When Ready:** Execute **Phase 1 — Step 5** (Authentication, JWT + RBAC & Audit Logs) and **Step 6** (Sources, Editions, Rights & Passages APIs), then connect Neon PostgreSQL credentials in local `.env` to run live Flyway migrations.
 

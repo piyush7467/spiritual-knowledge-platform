@@ -39,13 +39,13 @@ frontend/shared-theme/
 
 | Token | Hex | Role |
 |---|---|---|
-| `--bg-canvas` | `#F6F1E7` | Primary warm parchment page background |
-| `--bg-surface` | `#FCF9F2` | Reading cards, scripture panels, forms (warm ivory, never sterile `#FFFFFF`) |
-| `--bg-surface-muted` | `#EDE3D2` | Secondary sandalwood surface, filter trays, comparison headers |
-| `--bg-anchor` | `#241B15` | Deep rosewood-umber masthead, featured scripture banner, footer |
-| `--bg-anchor-elevated` | `#32261E` | Nested panels inside dark anchor blocks (e.g., search bar in hero, dark quote card) |
-| `--border-subtle` | `#DDD0BC` | Warm sandstone divider on light surfaces |
-| `--border-anchor` | `#523E2D` | Warm bronze hairline divider inside dark anchor zones |
+| `--bg-canvas` | `#F5EFE4` | Primary warm parchment page background |
+| `--bg-surface` | `#FAF6EE` | Reading cards, scripture panels, forms (warm ivory, never sterile `#FFFFFF`) |
+| `--bg-surface-muted` | `#EAE0CF` | Secondary sandalwood surface, filter trays, comparison headers |
+| `--bg-anchor` | `#261C16` | Deep rosewood-umber masthead, featured scripture banner, footer |
+| `--bg-anchor-elevated` | `#33261E` | Nested panels inside dark anchor blocks (e.g., search bar in hero, dark quote card) |
+| `--border-subtle` | `#D8C9B2` | Warm sandstone divider on light surfaces |
+| `--border-anchor` | `#544030` | Warm bronze hairline divider inside dark anchor zones |
 
 ### 3.2 Typography Ink Tokens
 
@@ -63,11 +63,11 @@ frontend/shared-theme/
 
 | Button Variant | Background (`--btn-*`) | Hover | Text | Border | Usage |
 |---|---|---|---|---|---|
-| **Primary CTA** | `#A84313` (Sacred Saffron-Terracotta) | `#86320B` (Deep Kumkum) | `#FAF4E8` (Warm Cream) | `#86320B` | Ask AI, Search, Publish, Save, Submit |
-| **Secondary Action** | `#E7D9C1` (Warm Sandalwood) | `#DAC7A8` | `#2B1E14` | `#B99768` (Antique Bronze) | Compare, Filter, View Source, Cancel |
-| **Dark-Anchor CTA** | `#C8822E` (Burnished Marigold-Gold) | `#AD6D20` | `#21170F` | `#DF9E4B` | Primary actions inside dark `#241B15` headers/banners |
-| **Outline / Ghost** | `transparent` | `#EFE5D4` | `#7D3B16` | `#C7AE8B` | Pagination, secondary tools, language switch |
-| **Destructive / Reject** | `#8B261D` (Deep Sindoor Crimson) | `#6F1B14` | `#FAF4E8` | `#6F1B14` | Reject record, delete draft, flag violation |
+| **Primary CTA** | `#B5490F` (Sacred Saffron-Terracotta) | `#8F3708` (Deep Kumkum) | `#FBF7F0` (Warm Cream) | `#8F3708` | Ask AI, Search, Publish, Save, Submit |
+| **Secondary Action** | `#E4D5BC` (Warm Sandalwood) | `#D6C2A3` | `#261C16` | `#B49263` (Antique Bronze) | Compare, Filter, View Source, Cancel |
+| **Dark-Anchor CTA** | `#D48B28` (Burnished Marigold-Gold) | `#BA761C` | `#211711` | `#E5A447` | Primary actions inside dark `#261C16` headers/banners |
+| **Outline / Ghost** | `transparent` | `#EDE2D0` | `#7D3B16` | `#C4AA85` | Pagination, secondary tools, language switch |
+| **Destructive / Reject** | `#8B261D` (Deep Sindoor Crimson) | `#6E1B13` | `#FBF7F0` | `#6E1B13` | Reject record, delete draft, flag violation |
 
 ### 3.4 Verification & Evidence Status Badges (Editorial, Non-Neon)
 

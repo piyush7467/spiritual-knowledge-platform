@@ -1,0 +1,99 @@
+/* ==========================================================================
+   SINGLE-PLACE SPIRITUAL THEME MANAGEMENT (tokens.css)
+   --------------------------------------------------------------------------
+   - One unified theme blending warm parchment reading surfaces with deep
+     rosewood-umber structural anchors (NO light/dark theme toggle).
+   - Spiritual button palette only (NO blue, black, white, or green buttons).
+   - Large, highly readable typography scale (minimum 16px metadata, 18px+
+     body, 20px+ scripture reading).
+   ========================================================================== */
+
+:root {
+  /* --- Surfaces (Warm Sunlit Parchment + Deep Rosewood-Umber Mix) --- */
+  --bg-canvas: #F5EFE4;
+  --bg-surface: #FAF6EE;
+  --bg-surface-muted: #EAE0CF;
+  --bg-anchor: #261C16;
+  --bg-anchor-elevated: #33261E;
+
+  /* --- Borders --- */
+  --border-subtle: #D8C9B2;
+  --border-strong: #B49263;
+  --border-anchor: #544030;
+
+  /* --- Ink / Typography Colors --- */
+  --text-ink: #231912;
+  --text-ink-muted: #5A4A3C;
+  --text-on-anchor: #F7F1E6;
+  --text-on-anchor-muted: #D8C7B0;
+  --text-sacred-accent: #9A3B0C;
+
+  /* --- Spiritual Button Tokens (Zero Blue / Black / White / Green) --- */
+  --btn-primary-bg: #B5490F;
+  --btn-primary-hover: #8F3708;
+  --btn-primary-text: #FBF7F0;
+  --btn-primary-border: #8F3708;
+
+  --btn-secondary-bg: #E4D5BC;
+  --btn-secondary-hover: #D6C2A3;
+  --btn-secondary-text: #261C16;
+  --btn-secondary-border: #B49263;
+
+  --btn-anchor-bg: #D48B28;
+  --btn-anchor-hover: #BA761C;
+  --btn-anchor-text: #211711;
+  --btn-anchor-border: #E5A447;
+
+  --btn-outline-bg: transparent;
+  --btn-outline-hover: #EDE2D0;
+  --btn-outline-text: #7D3B16;
+  --btn-outline-border: #C4AA85;
+
+  --btn-danger-bg: #8B261D;
+  --btn-danger-hover: #6E1B13;
+  --btn-danger-text: #FBF7F0;
+  --btn-danger-border: #6E1B13;
+
+  /* --- Editorial Status & Evidence Badges --- */
+  --badge-verified-bg: #F4E7CC;
+  --badge-verified-text: #734508;
+  --badge-verified-border: #CCA35E;
+
+  --badge-review-bg: #EFE2D1;
+  --badge-review-text: #6B421E;
+  --badge-review-border: #C6A278;
+
+  --badge-alert-bg: #F6E2DF;
+  --badge-alert-text: #7E221A;
+  --badge-alert-border: #D2948D;
+
+  --badge-neutral-bg: #E8DFD1;
+  --badge-neutral-text: #4B3E33;
+  --badge-neutral-border: #BFB19E;
+
+  /* --- Typography Scale (Large & Comfortable for All Readers) --- */
+  --font-serif: 'Noto Serif', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Inter', sans-serif;
+
+  --text-hero: clamp(2rem, 4.2vw, 3rem);         /* 32px - 48px */
+  --text-h1: clamp(1.625rem, 3vw, 2.25rem);      /* 26px - 36px */
+  --text-h2: clamp(1.375rem, 2.2vw, 1.75rem);    /* 22px - 28px */
+  --text-scripture: clamp(1.25rem, 1.8vw, 1.375rem); /* 20px - 22px */
+  --text-body: 1.125rem;                         /* 18px base */
+  --text-ui: 1.0625rem;                          /* 17px controls */
+  --text-meta: 1rem;                             /* 16px metadata/badges */
+  --text-floor: 0.9375rem;                       /* 15px absolute minimum */
+
+  /* --- Layout & Radii --- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --touch-target-min: 48px;
+  --measure-reading: 65ch;
+
+  /* --- Subtle Editorial Elevation --- */
+  --shadow-card: 0 2px 10px rgba(38, 28, 22, 0.06);
+  --shadow-anchor: 0 10px 28px rgba(38, 28, 22, 0.16);
+}
+

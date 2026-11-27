@@ -1,0 +1,6 @@
+/* Single-place theme import (must precede @tailwind directives in CSS) */
+@import '../../shared-theme/index.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

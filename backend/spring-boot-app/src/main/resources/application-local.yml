@@ -1,0 +1,10 @@
+logging:
+  level:
+    com.platform: INFO
+    org.flywaydb: INFO
+    org.springframework.security: INFO
+
+spring:
+  jpa:
+    show-sql: false
+
